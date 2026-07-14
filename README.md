@@ -27,25 +27,22 @@ O FinanceControl foi criado para facilitar o controle de finanças, permitindo r
 
 ## 📂 Estrutura do projeto
 
-```text
-FinanceControl/
-│
-├── index.html
-├── login.html
-├── cadastro.html
-├── clientes.html
-├── relatorios.html
-├── configuracoes.html
-│
-├── style.css
-│
-└── src/
-    └── js/
-        ├── auth.js
-        ├── storage.js
-        ├── finance.js
-        ├── dashboard.js
-        ├── charts.js
-        ├── ui.js
-        └── main.js
-```
+FinanceControl
+
+├── index.html  
+├── login.html  
+├── cadastro.html  
+├── clientes.html  
+├── relatorios.html  
+├── configuracoes.html  
+├── style.css  
+
+└── src  
+&nbsp;&nbsp;&nbsp;&nbsp;└── js  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── auth.js  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── storage.js  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── finance.js  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── dashboard.js  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── charts.js  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── ui.js  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── main.js
