@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>
+Relatórios - FinanceControl
+</title>
+
+
+<link rel="stylesheet" href="style.css">
+
+
+</head>
+
+
+
+<body>
+
+
+<div class="app">
+
+
+
+<aside class="sidebar">
+
+
+<div class="logo">
+
+💰 FinanceControl
+
+</div>
+
+
+
+<nav>
+
+
+
+<button onclick="window.location.href='index.html'">
+
+📊 Dashboard
+
+</button>
+
+
+
+
+<button onclick="window.location.href='clientes.html'">
+
+👥 Clientes
+
+</button>
+
+
+
+
+<button onclick="window.location.href='relatorios.html'">
+
+📄 Relatórios
+
+</button>
+
+
+
+
+<button onclick="window.location.href='configuracoes.html'">
+
+⚙ Configurações
+
+</button>
+
+
+
+</nav>
+
+
+
+<button class="logout" onclick="logout()">
+
+🚪 Sair
+
+</button>
+
+
+
+</aside>
+
+
+
+
+
+
+
+<main class="main">
+
+
+
+
+
+<header class="topbar">
+
+
+<div>
+
+
+<h1>
+
+Relatórios
+
+</h1>
+
+
+<p>
+
+Análise financeira
+
+</p>
+
+
+</div>
+
+
+
+
+<div class="perfil">
+
+📊
+
+</div>
+
+
+
+</header>
+
+
+
+
+
+
+
+
+<section class="cards">
+
+
+
+
+
+<div class="card entrada">
+
+
+<span>
+
+📈 Total de Entradas
+
+</span>
+
+
+<h2 id="relEntrada">
+
+R$ 0,00
+
+</h2>
+
+
+
+</div>
+
+
+
+
+
+
+
+<div class="card saida">
+
+
+<span>
+
+📉 Total de Saídas
+
+</span>
+
+
+<h2 id="relSaida">
+
+R$ 0,00
+
+</h2>
+
+
+
+</div>
+
+
+
+
+
+
+
+<div class="card">
+
+
+<span>
+
+💰 Saldo
+
+</span>
+
+
+<h2 id="relSaldo">
+
+R$ 0,00
+
+</h2>
+
+
+
+</div>
+
+
+
+
+
+
+
+<div class="card">
+
+
+<span>
+
+📋 Lançamentos
+
+</span>
+
+
+<h2 id="relQuantidade">
+
+0
+
+</h2>
+
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<section class="box">
+
+
+<h2>
+
+Exportação
+
+</h2>
+
+
+
+<p>
+
+Baixe seus dados financeiros em formato compatível com Excel.
+
+</p>
+
+
+
+
+<br>
+
+
+
+<button 
+class="form button"
+id="exportar">
+
+📄 Exportar CSV
+
+</button>
+
+
+
+
+</section>
+
+
+
+
+
+</main>
+
+
+
+</div>
+
+
+
+
+
+
+
+<script src="src/js/auth.js"></script>
+
+<script src="src/js/finance.js"></script>
+
+<script src="src/js/storage.js"></script>
+
+<script src="src/js/relatorios.js"></script>
+
+
+
+</body>
+
+</html>

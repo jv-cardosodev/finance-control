@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>
+Configurações - FinanceControl
+</title>
+
+
+<link rel="stylesheet" href="style.css">
+
+
+</head>
+
+
+<body>
+
+
+<div class="app">
+
+
+
+<!-- MENU -->
+
+<aside class="sidebar">
+
+
+<div class="logo">
+
+💰 FinanceControl
+
+</div>
+
+
+
+
+<nav>
+
+
+<button onclick="window.location.href='index.html'">
+
+📊 Dashboard
+
+</button>
+
+
+
+<button onclick="window.location.href='clientes.html'">
+
+👥 Clientes
+
+</button>
+
+
+
+<button onclick="window.location.href='relatorios.html'">
+
+📄 Relatórios
+
+</button>
+
+
+
+<button onclick="window.location.href='configuracoes.html'">
+
+⚙ Configurações
+
+</button>
+
+
+
+</nav>
+
+
+
+
+
+<button class="logout" onclick="logout()">
+
+🚪 Sair
+
+</button>
+
+
+
+</aside>
+
+
+
+
+
+
+
+
+
+<!-- CONTEÚDO -->
+
+<main class="main">
+
+
+
+
+
+<header class="topbar">
+
+
+<div>
+
+
+<h1>
+
+Configurações
+
+</h1>
+
+
+<p>
+
+Gerencie seu perfil e preferências
+
+</p>
+
+
+</div>
+
+
+
+
+
+<div class="perfil" id="avatar">
+
+
+👤
+
+</div>
+
+
+
+
+</header>
+
+
+
+
+
+
+
+
+
+<section class="box">
+
+
+
+<h2>
+
+Perfil do usuário
+
+</h2>
+
+
+
+
+<div class="form">
+
+
+
+<input
+
+id="nomeUsuario"
+
+placeholder="Nome completo">
+
+
+
+
+
+<input
+
+id="senhaUsuario"
+
+type="password"
+
+placeholder="Nova senha">
+
+
+
+
+
+<button id="salvarPerfil">
+
+Salvar alterações
+
+</button>
+
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<section class="box">
+
+
+
+<h2>
+
+Minha conta
+
+</h2>
+
+
+
+
+<div class="card">
+
+
+
+<span>
+
+Usuário conectado
+
+</span>
+
+
+
+<h2 id="emailUsuario">
+
+-
+
+</h2>
+
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<section class="box">
+
+
+<h2>
+
+Sobre o sistema
+
+</h2>
+
+
+
+<p>
+
+💰 FinanceControl
+
+</p>
+
+
+
+<p>
+
+Versão: 1.0 Pro
+
+</p>
+
+
+
+<p>
+
+Sistema de controle financeiro empresarial.
+
+</p>
+
+
+
+</section>
+
+
+
+
+
+
+</main>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<script src="src/js/auth.js"></script>
+
+<script src="src/js/configuracoes.js"></script>
+
+
+
+</body>
+
+</html>

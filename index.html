@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>
+FinanceControl - Dashboard
+</title>
+
+
+<link rel="stylesheet" href="style.css">
+
+
+</head>
+
+
+<body>
+
+
+<div class="app">
+
+
+
+<!-- SIDEBAR -->
+
+<aside class="sidebar">
+
+
+<div class="logo">
+
+💰 FinanceControl
+
+</div>
+
+
+
+
+<nav>
+
+
+<button onclick="window.location.href='index.html'">
+
+📊 Dashboard
+
+</button>
+
+
+
+<button onclick="window.location.href='clientes.html'">
+
+👥 Clientes
+
+</button>
+
+
+
+<button onclick="window.location.href='relatorios.html'">
+
+📄 Relatórios
+
+</button>
+
+
+
+<button onclick="window.location.href='configuracoes.html'">
+
+⚙ Configurações
+
+</button>
+
+
+
+</nav>
+
+
+
+
+
+<button class="logout" onclick="logout()">
+
+🚪 Sair
+
+</button>
+
+
+
+</aside>
+
+
+
+
+
+
+
+
+
+<!-- CONTEÚDO PRINCIPAL -->
+
+
+<main class="main">
+
+
+
+
+
+<header class="topbar">
+
+
+<div>
+
+
+<h1>
+
+Dashboard
+
+</h1>
+
+
+
+<p id="usuarioNome">
+
+Carregando usuário...
+
+</p>
+
+
+</div>
+
+
+
+
+
+<div class="perfil">
+
+👤
+
+</div>
+
+
+
+</header>
+
+
+
+
+
+
+
+
+
+<!-- CARDS -->
+
+<section class="cards">
+
+
+
+<div class="card">
+
+
+<span>
+
+💰 Saldo Atual
+
+</span>
+
+
+<h2 id="saldo">
+
+R$ 0,00
+
+</h2>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="card entrada">
+
+
+<span>
+
+📈 Entradas
+
+</span>
+
+
+<h2 id="totalEntrada">
+
+R$ 0,00
+
+</h2>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="card saida">
+
+
+<span>
+
+📉 Saídas
+
+</span>
+
+
+<h2 id="totalSaida">
+
+R$ 0,00
+
+</h2>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="card">
+
+
+<span>
+
+📋 Movimentações
+
+</span>
+
+
+<h2 id="qtdMovimentos">
+
+0
+
+</h2>
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- NOVA MOVIMENTAÇÃO -->
+
+
+<section class="box">
+
+
+<h2>
+
+Nova Movimentação
+
+</h2>
+
+
+
+
+<div class="form">
+
+
+
+<input
+
+id="descricao"
+
+placeholder="Descrição">
+
+
+
+
+
+
+<input
+
+id="valor"
+
+type="number"
+
+placeholder="Valor">
+
+
+
+
+
+<select id="tipo">
+
+
+<option value="entrada">
+
+Entrada
+
+</option>
+
+
+
+<option value="saida">
+
+Saída
+
+</option>
+
+
+</select>
+
+
+
+
+
+
+
+<select id="categoria">
+
+
+<option>
+
+Outros
+
+</option>
+
+
+
+<option>
+
+Alimentação
+
+</option>
+
+
+
+<option>
+
+Transporte
+
+</option>
+
+
+
+<option>
+
+Moradia
+
+</option>
+
+
+
+<option>
+
+Lazer
+
+</option>
+
+
+
+</select>
+
+
+
+
+
+
+
+<button id="btnAdicionar">
+
+Adicionar
+
+</button>
+
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- GRÁFICOS -->
+
+
+<section class="graficos">
+
+
+
+<div class="box">
+
+
+<h2>
+
+Entradas x Saídas
+
+</h2>
+
+
+<canvas id="graficoMovimento"></canvas>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="box">
+
+
+<h2>
+
+Categorias
+
+</h2>
+
+
+<canvas id="graficoCategoria"></canvas>
+
+
+</div>
+
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- HISTÓRICO -->
+
+
+<section class="box">
+
+
+<h2>
+
+Histórico de Movimentações
+
+</h2>
+
+
+
+
+<table>
+
+
+<thead>
+
+
+<tr>
+
+
+<th>
+
+Descrição
+
+</th>
+
+
+
+<th>
+
+Valor
+
+</th>
+
+
+
+<th>
+
+Tipo
+
+</th>
+
+
+
+<th>
+
+Categoria
+
+</th>
+
+
+
+<th>
+
+Data
+
+</th>
+
+
+
+<th>
+
+Ação
+
+</th>
+
+
+</tr>
+
+
+</thead>
+
+
+
+
+
+<tbody id="tabela">
+
+
+</tbody>
+
+
+
+
+</table>
+
+
+
+
+</section>
+
+
+
+
+
+
+
+</main>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<!-- BIBLIOTECA GRÁFICOS -->
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+
+
+
+<!-- JAVASCRIPT DO SISTEMA -->
+
+
+<script src="src/js/storage.js"></script>
+
+<script src="src/js/auth.js"></script>
+
+<script src="src/js/notificacao.js"></script>
+
+<script src="src/js/finance.js"></script>
+
+<script src="src/js/charts.js"></script>
+
+<script src="src/js/dashboard.js"></script>
+
+<script src="src/js/ui.js"></script>
+
+<script src="src/js/main.js"></script>
+
+
+
+</body>
+
+</html>

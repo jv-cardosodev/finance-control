@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>
+Clientes - FinanceControl
+</title>
+
+
+<link rel="stylesheet" href="style.css">
+
+
+</head>
+
+
+<body>
+
+
+<div class="app">
+
+
+
+<aside class="sidebar">
+
+
+<div class="logo">
+
+💰 FinanceControl
+
+</div>
+
+
+
+<nav>
+
+
+<button onclick="window.location.href='index.html'">
+
+📊 Dashboard
+
+</button>
+
+
+
+<button onclick="window.location.href='clientes.html'">
+
+👥 Clientes
+
+</button>
+
+
+
+<button onclick="window.location.href='relatorios.html'">
+
+📄 Relatórios
+
+</button>
+
+
+
+<button onclick="window.location.href='configuracoes.html'">
+
+⚙ Configurações
+
+</button>
+
+
+
+</nav>
+
+
+
+
+<button class="logout" onclick="logout()">
+
+🚪 Sair
+
+</button>
+
+
+
+</aside>
+
+
+
+
+
+
+
+
+<main class="main">
+
+
+
+<header class="topbar">
+
+
+<div>
+
+
+<h1>
+
+Clientes
+
+</h1>
+
+
+<p>
+
+Gerenciamento de clientes
+
+</p>
+
+
+</div>
+
+
+
+
+<div class="perfil">
+
+👥
+
+</div>
+
+
+
+</header>
+
+
+
+
+
+
+
+
+
+<section class="box">
+
+
+<h2>
+
+Novo Cliente
+
+</h2>
+
+
+
+<div class="form">
+
+
+
+<input
+id="nomeCliente"
+placeholder="Nome do cliente">
+
+
+
+
+
+<input
+id="telefoneCliente"
+placeholder="Telefone">
+
+
+
+
+
+<input
+id="emailCliente"
+placeholder="Email">
+
+
+
+
+
+<button id="adicionarCliente">
+
+Cadastrar
+
+</button>
+
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<section class="box">
+
+
+<h2>
+
+Lista de Clientes
+
+</h2>
+
+
+
+
+
+<input
+
+id="pesquisaCliente"
+
+placeholder="🔎 Pesquisar cliente"
+
+style="width:100%;margin-bottom:20px"
+
+>
+
+
+
+
+<table>
+
+
+<thead>
+
+
+<tr>
+
+
+<th>
+
+Nome
+
+</th>
+
+
+<th>
+
+Telefone
+
+</th>
+
+
+<th>
+
+Email
+
+</th>
+
+
+<th>
+
+Ação
+
+</th>
+
+
+</tr>
+
+
+</thead>
+
+
+
+
+<tbody id="listaClientes">
+
+
+</tbody>
+
+
+
+</table>
+
+
+
+
+</section>
+
+
+
+
+
+
+
+</main>
+
+
+</div>
+
+
+
+
+
+
+
+<script src="src/js/auth.js"></script>
+
+<script src="src/js/notificacao.js"></script>
+
+<script src="src/js/clientes.js"></script>
+
+
+
+</body>
+
+</html>
