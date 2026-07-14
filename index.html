@@ -20,7 +20,14 @@ FinanceControl - Dashboard
 
 <body>
 
+<script>
+if (!localStorage.getItem("usuarioLogado")) {
+    window.location.href = "login.html";
+}
+</script>
 
+
+<div class="app">
 <div class="app">
 
 
@@ -578,14 +585,12 @@ Ação
 
 <!-- BIBLIOTECA GRÁFICOS -->
 
+<!-- BIBLIOTECA GRÁFICOS -->
+
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 
-
-
-
 <!-- JAVASCRIPT DO SISTEMA -->
-
 
 <script src="src/js/storage.js"></script>
 
@@ -603,6 +608,18 @@ Ação
 
 <script src="src/js/main.js"></script>
 
+
+<script>
+
+function logout(){
+
+    localStorage.removeItem("usuarioLogado");
+
+    window.location.href = "login.html";
+
+}
+
+</script>
 
 
 </body>
