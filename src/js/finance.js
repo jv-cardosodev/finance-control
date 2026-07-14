@@ -4,8 +4,6 @@ let movimentos = JSON.parse(
 
 
 
-
-
 function salvarMovimentos(){
 
     localStorage.setItem(
@@ -19,7 +17,6 @@ function salvarMovimentos(){
 
 
 
-
 function adicionarMovimentacao(
     descricao,
     valor,
@@ -27,74 +24,49 @@ function adicionarMovimentacao(
     categoria
 ){
 
+    let data = new Date();
 
 
-let data = new Date();
+    let nova = {
+
+        id: Date.now(),
+
+        descricao: descricao,
+
+        valor: Number(valor),
+
+        tipo: tipo,
+
+        categoria: categoria,
+
+        data: data.toLocaleDateString("pt-BR")
+
+    };
 
 
-
-let nova = {
-
-
-id: Date.now(),
+    movimentos.push(nova);
 
 
-descricao: descricao,
+    salvarMovimentos();
 
 
-valor: Number(valor),
+    mostrarMovimentos();
 
 
-tipo: tipo,
+    if(typeof atualizarDashboard === "function"){
+
+        atualizarDashboard();
+
+    }
 
 
-categoria: categoria,
+    if(typeof atualizarGraficos === "function"){
 
+        atualizarGraficos();
 
-data:
-data.toLocaleDateString("pt-BR")
-
-
-};
-
-
-
-
-
-movimentos.push(nova);
-
-
-
-
-
-salvarMovimentos();
-
-
-
-
-
-mostrarMovimentos();
-
-
-
-if(typeof atualizarDashboard === "function"){
-
-    atualizarDashboard();
+    }
 
 }
-
-
-
-if(typeof atualizarGraficos === "function"){
-
-    atualizarGraficos();
-
-}
-
-
-}
-
-
 
 
 
@@ -103,118 +75,63 @@ if(typeof atualizarGraficos === "function"){
 function mostrarMovimentos(){
 
 
+    let tabela = document.getElementById("tabela");
 
-let tabela =
 
-document.getElementById("tabela");
+    if(!tabela){
 
+        return;
 
+    }
 
-if(!tabela){
 
-    return;
+    tabela.innerHTML = "";
 
-}
 
+    movimentos.forEach(m => {
 
 
+        let linha = document.createElement("tr");
 
-tabela.innerHTML="";
 
+        linha.innerHTML = `
 
+        <td>
+            ${m.descricao}
+        </td>
 
+        <td>
+            R$ ${m.valor.toFixed(2)}
+        </td>
 
+        <td>
+            ${m.tipo}
+        </td>
 
-movimentos.forEach(m => {
+        <td>
+            ${m.categoria}
+        </td>
 
+        <td>
+            ${m.data}
+        </td>
 
+        <td>
+            <button onclick="removerMovimento(${m.id})">
+                🗑️
+            </button>
+        </td>
 
-let linha = document.createElement("tr");
+        `;
 
 
+        tabela.appendChild(linha);
 
 
-
-linha.innerHTML = `
-
-
-<td>
-
-${m.descricao}
-
-</td>
-
-
-
-<td>
-
-R$ ${m.valor.toFixed(2)}
-
-</td>
-
-
-
-
-<td>
-
-${m.tipo}
-
-</td>
-
-
-
-<td>
-
-${m.categoria}
-
-</td>
-
-
-
-<td>
-
-${m.data}
-
-</td>
-
-
-
-
-<td>
-
-
-<button onclick="removerMovimento(${m.id})">
-
-🗑️
-
-</button>
-
-
-</td>
-
-
-`;
-
-
-
-
-
-
-tabela.appendChild(linha);
-
-
-
-
-});
-
-
+    });
 
 
 }
-
-
-
-
 
 
 
@@ -223,42 +140,35 @@ tabela.appendChild(linha);
 function removerMovimento(id){
 
 
+    movimentos = movimentos.filter(
 
-movimentos = movimentos.filter(
+        m => m.id !== id
 
-m => m.id !== id
-
-);
-
+    );
 
 
-
-salvarMovimentos();
-
+    salvarMovimentos();
 
 
-mostrarMovimentos();
+    mostrarMovimentos();
 
 
 
-if(typeof atualizarDashboard === "function"){
+    if(typeof atualizarDashboard === "function"){
 
-    atualizarDashboard();
+        atualizarDashboard();
 
-}
+    }
 
 
+    if(typeof atualizarGraficos === "function"){
 
-if(typeof atualizarGraficos === "function"){
+        atualizarGraficos();
 
-    atualizarGraficos();
-
-}
-
+    }
 
 
 }
-
 
 
 
@@ -272,10 +182,73 @@ window.addEventListener(
 
 ()=>{
 
-
-mostrarMovimentos();
-
+    mostrarMovimentos();
 
 }
 
 );
+
+
+
+
+
+
+
+document
+.getElementById("btnAdicionar")
+.onclick = function(){
+
+
+    let descricao = document
+    .getElementById("descricao")
+    .value;
+
+
+    let valor = document
+    .getElementById("valor")
+    .value;
+
+
+    let tipo = document
+    .getElementById("tipo")
+    .value;
+
+
+    let categoria = document
+    .getElementById("categoria")
+    .value;
+
+
+
+    if(
+        descricao === "" ||
+        valor === ""
+    ){
+
+        alert("Preencha todos os campos");
+
+        return;
+
+    }
+
+
+
+    adicionarMovimentacao(
+
+        descricao,
+
+        valor,
+
+        tipo,
+
+        categoria
+
+    );
+
+
+
+    document.getElementById("descricao").value = "";
+
+    document.getElementById("valor").value = "";
+
+};
